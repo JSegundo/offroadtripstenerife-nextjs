@@ -1,8 +1,18 @@
+"use client"
+import Services from "@/components/services/services"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { JSX, SVGProps } from "react"
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { galleryImages } from "@/lib/galleryImages"
+import FindUs from "@/components/findus/FindUs"
 /**
  * v0 by Vercel.
  * @see https://v0.dev/t/cFAIwJQTAG6
@@ -10,7 +20,7 @@ import { JSX, SVGProps } from "react"
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F5F5F5]">
+    <div className="flex flex-col align-center justify-center min-h-screen bg-[#F5F5F5]">
       {/* <nav className="bg-[#002C41] py-4 px-6 flex justify-between items-center">
         <Link href="#">
           <MountainIcon className="h-6 w-6" color="white" />
@@ -87,141 +97,85 @@ export default function Home() {
           </a>
         </div>
       </header>
-      <AboutSection />
-      <section
-        className="py-12 px-4 mx-auto"
-        id="why-choose"
-        style={{ width: "80%" }}
-      >
-        <h2 className="text-3xl font-bold text-center text-[#002C41]">
-          Why Choose Our Excursions
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          <div className="text-center bg-white p-4 rounded-lg shadow-md">
-            <MountainIcon className="h-12 w-12 mx-auto mb-4 text-[#91705A]" />
-            <h3 className="text-2xl font-semibold text-[#002C41]">
-              Rugged Terrains
-            </h3>
-            <p className="mt-2 text-[#002C41]">
-              Experience the thrill of navigating through diverse landscapes.
-            </p>
-          </div>
-          <div className="text-center bg-white p-10 rounded-lg shadow-md">
-            <SunsetIcon className="h-12 w-12 mx-auto mb-4 text-[#91705A]" />
-            <h3 className="text-2xl font-semibold text-[#002C41]">
-              Scenic Views
-            </h3>
-            <p className="mt-2 text-[#002C41]">
-              Enjoy breathtaking views and capture unforgettable moments.
-            </p>
-          </div>
-          <div className="text-center bg-white p-4 rounded-lg shadow-md">
-            <ViewIcon className="h-12 w-12 mx-auto mb-4 text-[#91705A]" />
-            <h3 className="text-2xl font-semibold text-[#002C41]">
-              Professional Guides
-            </h3>
-            <p className="mt-2 text-[#002C41]">
-              Our guides ensure a safe and enjoyable adventure for all skill
-              levels.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section
-        className="mx-auto py-12 px-10 bg-[#F5F5F5]"
-        id="gallery"
-        style={{ width: "80%" }}
-      >
-        <h2 className="text-3xl font-bold text-center text-[#002C41]">
-          Gallery
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-          <Image
-            alt="Gallery Image 1"
-            className="w-full h-64 object-cover rounded-lg shadow-md"
-            height="200"
-            src="https://media.istockphoto.com/id/909363946/es/foto/hombre-montado-veh%C3%ADculo-atv-en-fuera-de-pista-tema-de-animaciones-de-deporte-al-aire-libre-de.jpg?s=1024x1024&w=is&k=20&c=yV2sXgt5NG3pgsiQo8Ml7woBRInMsfjrdJIQstOc39M="
-            style={{
-              aspectRatio: "200/200",
-              objectFit: "cover",
-            }}
-            width="200"
-          />
-          <Image
-            alt="Gallery Image 2"
-            className="w-full h-64 object-cover rounded-lg shadow-md"
-            height="200"
-            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/400437216.jpg?k=2c9f8271edc3d18e12ebee32a84fdc6e6e0dc89c338d151f2c849c0e8566ac8a&o=&hp=1"
-            style={{
-              aspectRatio: "200/200",
-              objectFit: "cover",
-            }}
-            width="200"
-          />
-          <Image
-            alt="Gallery Image 3"
-            className="w-full h-64 object-cover rounded-lg shadow-md"
-            height="200"
-            src="https://media.istockphoto.com/id/1460528492/es/foto/todoterreno-en-un-paisaje-des%C3%A9rtico-al-norte-de-tabuk.jpg?s=612x612&w=0&k=20&c=3Fr8S2O6srAAbvbW07t8zgD4qPSTNxMD5pfBoSkIepA="
-            style={{
-              aspectRatio: "200/200",
-              objectFit: "cover",
-            }}
-            width="200"
-          />
-          <Image
-            alt="Gallery Image 1"
-            className="w-full h-64 object-cover rounded-lg shadow-md"
-            height="200"
-            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/400436398.jpg?k=4c1eace7f9bc63dbb70e4ea20db6e15a296a78bf3b7dd227eec3426aa9993927&o=&hp=1"
-            style={{
-              aspectRatio: "200/200",
-              objectFit: "cover",
-            }}
-            width="200"
-          />
-          <Image
-            alt="Gallery Image 2"
-            className="w-full h-64 object-cover rounded-lg shadow-md"
-            height="200"
-            src="https://images.unsplash.com/photo-1678554832872-d7c4497784eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            style={{
-              aspectRatio: "200/200",
-              objectFit: "cover",
-            }}
-            width="200"
-          />
-          <Image
-            alt="Gallery Image 3"
-            className="w-full h-64 object-cover rounded-lg shadow-md"
-            height="200"
-            src="https://media.istockphoto.com/id/1460528492/es/foto/todoterreno-en-un-paisaje-des%C3%A9rtico-al-norte-de-tabuk.jpg?s=612x612&w=0&k=20&c=3Fr8S2O6srAAbvbW07t8zgD4qPSTNxMD5pfBoSkIepA="
-            style={{
-              aspectRatio: "200/200",
-              objectFit: "cover",
-            }}
-            width="200"
-          />
-        </div>
-      </section>
 
-      <section className="py-12 px-4 text-center" id="accommodation">
-        <h2 className="text-3xl font-bold text-[#002C41]">
-          Need Accommodation?
-        </h2>
-        <p className="mt-4 text-lg">
-          Check out our hostel for a comfortable stay during your adventure.
-        </p>
-        <Link
-          className="mt-8 text-white inline-block"
-          href="https://www.booking.com/hotel/es/single-fin-hostel.es.html"
-          target="_blank"
+      <main className="mx-auto p-4 md:p-10  max-w-screen-xl lg:max-w-[80%]">
+        <AboutSection />
+        {/* Why Choose Our Excursions */}
+        <section
+          className="mb-8 mx-auto
+        mt-6 md:mt-8 lg:mt-16
+        "
+          id="why-choose"
         >
-          <Button size="lg" variant="link" className="bg-[#FB9038] text-white">
-            View Hostel - Single fin
-          </Button>
-        </Link>
-      </section>
+          <h2 className="text-3xl font-bold text-center text-[#002C41]">
+            Why Choose Our Excursions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            <div className="text-center bg-white p-4 rounded-lg shadow-md">
+              <MountainIcon className="h-12 w-12 mx-auto mb-4 text-[#91705A]" />
+              <h3 className="text-2xl font-semibold text-[#002C41]">
+                Rugged Terrains
+              </h3>
+              <p className="mt-2 text-[#002C41]">
+                Experience the thrill of navigating through diverse landscapes.
+              </p>
+            </div>
+            <div className="text-center bg-white p-10 rounded-lg shadow-md">
+              <SunsetIcon className="h-12 w-12 mx-auto mb-4 text-[#91705A]" />
+              <h3 className="text-2xl font-semibold text-[#002C41]">
+                Scenic Views
+              </h3>
+              <p className="mt-2 text-[#002C41]">
+                Enjoy breathtaking views and capture unforgettable moments.
+              </p>
+            </div>
+            <div className="text-center bg-white p-4 rounded-lg shadow-md">
+              <ViewIcon className="h-12 w-12 mx-auto mb-4 text-[#91705A]" />
+              <h3 className="text-2xl font-semibold text-[#002C41]">
+                Professional Guides
+              </h3>
+              <p className="mt-2 text-[#002C41]">
+                Our guides ensure a safe and enjoyable adventure for all skill
+                levels.
+              </p>
+            </div>
+          </div>
+        </section>
+        <Services />
+        {/* Gallery */}
+        <section
+          className="mb-8 bg-[#F5F5F5]         mt-6 md:mt-8 lg:mt-16"
+          id="gallery"
+        >
+          <h2 className="text-3xl font-bold text-center text-[#002C41]">
+            Gallery
+          </h2>
+          <Carousel className="mt-8">
+            <CarouselContent>
+              {galleryImages.map((src, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Image
+                    alt="Gallery Image 1"
+                    className="w-full h-64 object-cover rounded-lg shadow-md"
+                    height="200"
+                    src={src}
+                    style={{
+                      aspectRatio: "200/200",
+                      objectFit: "cover",
+                    }}
+                    width="200"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>{" "}
+        </section>
+        {/* How to find us */}
+        <FindUs />
+      </main>
+
       <footer
         className="bg-[#002C41] text-white py-8 px-4 mt-auto"
         id="contact"
@@ -255,18 +209,18 @@ export default function Home() {
 
 function AboutSection() {
   return (
-    <section className="w-full py-4 md:py-12 lg:py-16">
-      <div className="container px-4 md:px-6">
-        <div className="grid items-start gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-          <div className="flex flex-col justify-center space-y-4">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-[#002C41]">
-                The Excursion
-              </h2>
+    <section className="mb-8">
+      {/* <div className="container "> */}
+      <div className="grid items-start gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+        <div className="flex flex-col justify-center space-y-4">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-[#002C41]">
+              The Excursion
+            </h2>
 
+            <article>
               <p
-                className="mx-auto max-w-[700px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
-                style={{ lineHeight: "1.5" }}
+              // className="mx-auto max-w-[700px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
               >
                 Get ready for an adrenaline-pumping adventure with our ATV
                 off-road excursion in Tenerife! Our product is designed to
@@ -288,43 +242,44 @@ function AboutSection() {
                 excursion today and experience the thrill of off-road riding
                 like never before!
               </p>
-            </div>
-            <ul className="grid gap-2 py-4">
-              <li>
-                <CheckIcon className="mr-2 inline-block h-4 w-4" />
-                Easy to use interface
-              </li>
-              <li>
-                <CheckIcon className="mr-2 inline-block h-4 w-4" />
-                High efficiency and performance
-              </li>
-              <li>
-                <CheckIcon className="mr-2 inline-block h-4 w-4" />
-                Durable and built to last
-              </li>
-            </ul>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              {/* <Button size="lg">Learn More</Button> */}
-              <Button
-                size="lg"
-                variant="link"
-                className="bg-[#FB9038] text-white"
-              >
-                <a href="#">Purchase Now</a>
-              </Button>
-            </div>
+            </article>
           </div>
-          <div className="flex items-center justify-center">
-            <Image
-              alt="Product Image"
-              className="rounded-lg object-cover w-full aspect-square"
-              height={500}
-              src="https://media.istockphoto.com/id/1460528492/es/foto/todoterreno-en-un-paisaje-des%C3%A9rtico-al-norte-de-tabuk.jpg?s=612x612&w=0&k=20&c=3Fr8S2O6srAAbvbW07t8zgD4qPSTNxMD5pfBoSkIepA="
-              width={500}
-            />
+          <ul className="grid gap-2 py-4">
+            <li>
+              <CheckIcon className="mr-2 inline-block h-4 w-4" />
+              Easy to use interface
+            </li>
+            <li>
+              <CheckIcon className="mr-2 inline-block h-4 w-4" />
+              High efficiency and performance
+            </li>
+            <li>
+              <CheckIcon className="mr-2 inline-block h-4 w-4" />
+              Durable and built to last
+            </li>
+          </ul>
+          <div className="flex flex-col gap-2 min-[400px]:flex-row">
+            {/* <Button size="lg">Learn More</Button> */}
+            <Button
+              size="lg"
+              variant="link"
+              className="bg-[#FB9038] text-white"
+            >
+              <a href="#">Purchase Now</a>
+            </Button>
           </div>
         </div>
+        <div className="flex items-center justify-center">
+          <Image
+            alt="Product Image"
+            className="rounded-lg object-cover w-full aspect-square"
+            height={500}
+            src="https://media.istockphoto.com/id/1460528492/es/foto/todoterreno-en-un-paisaje-des%C3%A9rtico-al-norte-de-tabuk.jpg?s=612x612&w=0&k=20&c=3Fr8S2O6srAAbvbW07t8zgD4qPSTNxMD5pfBoSkIepA="
+            width={500}
+          />
+        </div>
       </div>
+      {/* </div> */}
     </section>
   )
 }
